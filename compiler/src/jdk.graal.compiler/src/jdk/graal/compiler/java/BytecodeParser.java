@@ -3655,6 +3655,19 @@ public abstract class BytecodeParser extends CoreProvidersDelegate implements Gr
             frameState = getEntryState(block);
             currentBlock = block;
 
+            if (block.exceptionDispatchBlock() != null) {
+                ExceptionDispatchBlock edb = (ExceptionDispatchBlock) block.exceptionDispatchBlock();
+
+                if (edb.handler != null) {
+                    System.out.println(
+                        "IR Detected try-catch in method: " +
+                        method.getName() +
+                        " handles: " +
+                        edb.handler.getCatchType()
+                    );
+                }
+            }
+
             if (firstInstruction instanceof AbstractMergeNode) {
                 setMergeStateAfter(block, firstInstruction);
             }
