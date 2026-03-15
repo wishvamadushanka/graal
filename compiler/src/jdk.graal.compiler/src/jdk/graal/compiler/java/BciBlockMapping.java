@@ -789,15 +789,15 @@ public class BciBlockMapping implements JavaMethodContext {
         this.code = code;
         this.debug = debug;
         this.exceptionHandlers = code.getExceptionHandlers().length != 0 ? code.getExceptionHandlers() : null;
-        if (this.exceptionHandlers != null && this.exceptionHandlers.length > 0) {
-            System.out.println("Detected try-catch block in method: " + this.code.getMethod().getName());
-
-            for (ExceptionHandler handler : this.exceptionHandlers) {
-                System.out.println(
-                    "Handles exception type: " + handler.getCatchType()
-                );
-            }
-        }
+        //if (this.exceptionHandlers != null && this.exceptionHandlers.length > 0) {
+        //    System.out.println("Detected try-catch block in method: " + this.code.getMethod().getName());
+        //
+        //    for (ExceptionHandler handler : this.exceptionHandlers) {
+        //        System.out.println(
+        //            "Handles exception type: " + handler.getCatchType()
+        //        );
+        //    }
+        //}
         this.blockMap = new BciBlock[code.getCodeSize()];
     }
 
